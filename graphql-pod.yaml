@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: graphqlserv
+  labels:
+    app: graphqlserv
+spec:
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: graphqlserv
+  template:
+    metadata:
+      labels:
+        app: graphqlserv
+    spec:
+      containers:
+      - name: graphqlserv
+        image: rueies/graphqlserv
+        ports:
+        - containerPort: 8014

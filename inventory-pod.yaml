@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventoryserv
+  labels:
+    app: inventoryserv
+spec:
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: inventoryserv
+  template:
+    metadata:
+      labels:
+        app: inventoryserv
+    spec:
+      containers:
+      - name: inventoryserv
+        image: rueies/inventoryservice
+        ports:
+        - containerPort: 8011

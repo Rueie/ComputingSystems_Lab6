@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rmqbd
+  labels:
+    app: rmqbd
+spec:
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: rmqbd
+  template:
+    metadata:
+      labels:
+        app: rmqbd
+    spec:
+      containers:
+      - name: rmqbd
+        image: rabbitmq
+        ports:
+        - containerPort: 5672

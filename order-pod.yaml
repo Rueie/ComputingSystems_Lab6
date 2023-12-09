@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orderserv
+  labels:
+    app: orderserv
+spec:
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: orderserv
+  template:
+    metadata:
+      labels:
+        app: orderserv
+    spec:
+      containers:
+      - name: orderserv
+        image: rueies/orderservice
+        ports:
+        - containerPort: 8013

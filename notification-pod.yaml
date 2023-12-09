@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notificationserv
+  labels:
+    app: notificationserv
+spec:
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: notificationserv
+  template:
+    metadata:
+      labels:
+        app: notificationserv
+    spec:
+      containers:
+      - name: notificationserv
+        image: rueies/notificationservice
+        ports:
+        - containerPort: 8012

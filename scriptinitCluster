@@ -1,0 +1,19 @@
+#! /bin/bash
+sudo kind delete cluster --name test
+
+sudo kind create cluster --config k8s.yaml
+
+sudo kubectl apply -f namespace.yaml
+
+sudo kubectl apply -f postgres-pod.yaml -f postgres-service.yaml -n test
+sudo kubectl apply -f rmq-pod.yaml -f rmq-service.yaml -n test
+sudo kubectl apply -f kdb-pod.yaml -f kdb-service.yaml -n test
+
+sudo kubectl apply -f product-pod.yaml -f product-service.yaml -n test
+sudo kubectl apply -f inventory-pod.yaml -f invetory-service.yaml -n test
+sudo kubectl apply -f notification-pod.yaml -f notification-service.yaml -n test
+sudo kubectl apply -f order-pod.yaml -f order-service.yaml -n test
+sudo kubectl apply -f graphql-pod.yaml -f graphql-service.yaml -n test
+
+sudo kubectl get svc -n test
+sudo kubectl get pods -n test

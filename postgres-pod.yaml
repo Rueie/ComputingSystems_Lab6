@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shopbd
+  labels:
+    app: shopbd
+spec:
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: shopbd
+  template:
+    metadata:
+      labels:
+        app: shopbd
+    spec:
+      containers:
+      - name: shopbd
+        image: rueies/shopbd
+        ports:
+        - containerPort: 5432
