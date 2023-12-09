@@ -27,6 +27,11 @@
 # Сборка
 Запуск bash скрипта под названием __*scriptinitCluster*__
 
+# Удаление кластера
+```bash
+sudo kind delete cluster --name test
+```
+
 # Откуда берутся images для кластера?
 Образы из [ЛР №5](https://github.com/Rueie/ComputingSystems_Lab5) были залиты в docker. А именно в репозиторий [rueies](https://hub.docker.com/repositories/rueies).
 
